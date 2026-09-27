@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Çağla Çopuroğlu — iOS Engineer</title>
+<meta name="description" content="iOS engineer building modular, production-grade apps — from banking-grade production systems to independent projects like CGL.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Çağla Çopuroğlu — iOS Engineer">
+<meta property="og:description" content="iOS engineer building modular, production-grade apps — from banking-grade production systems to independent projects like CGL.">
+<meta property="og:url" content="https://lowkeyboard.github.io/">
+<meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b141f" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light;
+    --bg: #f6f8fa;
+    --surface: #ffffff;
+    --text: #14213d;
+    --text-muted: #57647b;
+    --accent: #1a5276;
+    --accent-2: #2e86ab;
+    --accent-soft: #e8f1f6;
+    --border: #dce6ed;
+    --shadow: 0 1px 2px rgba(20,33,61,0.04), 0 8px 24px rgba(20,33,61,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --bg: #0b141f;
+      --surface: #121d2b;
+      --text: #e7edf3;
+      --text-muted: #93a3b8;
+      --accent: #6fb1d6;
+      --accent-2: #8fc6e3;
+      --accent-soft: #16283a;
+      --border: #223245;
+      --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --bg: #0b141f;
+    --surface: #121d2b;
+    --text: #e7edf3;
+    --text-muted: #93a3b8;
+    --accent: #6fb1d6;
+    --accent-2: #8fc6e3;
+    --accent-soft: #16283a;
+    --border: #223245;
+    --shadow: 0 1px 2px rgba(0,0,0,0.2), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Public Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-font-smoothing: antialiased;
+  }
+  img{max-width:100%;}
+  [hidden]{display:none !important;}
+
+  .wrap{
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 64px 20px 48px;
+  }
+
+  header.hero{
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+  .eyebrow{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1{
+    font-family:"Manrope", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    line-height: 1.1;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .role{
+    font-family:"Manrope", sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .tagline{
+    max-width: 58ch;
+    color: var(--text-muted);
+    margin: 8px 0 0;
+  }
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 6px 18px;
+    margin-top: 18px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .meta-row span{display:inline-flex; align-items:center; gap:6px;}
+
+  .links{
+    display:flex;
+    flex-wrap:wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+  .btn{
+    font-family:"Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    text-decoration:none;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 9px 16px;
+    border-radius: 8px;
+    transition: border-color .15s ease, transform .15s ease;
+  }
+  .btn:hover{ border-color: var(--accent); transform: translateY(-1px); }
+  .btn.primary{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn.primary:hover{ background: var(--accent-2); border-color: var(--accent-2); }
+
+  section{ margin-bottom: 44px; }
+  h2{
+    font-family:"Manrope", sans-serif;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  p{ margin: 0 0 12px; }
+  p:last-child{ margin-bottom: 0; }
+
+  .about p{ color: var(--text); max-width: 62ch; }
+
+  .skill-group{
+    display:grid;
+    grid-template-columns: 150px 1fr;
+    column-gap: 16px;
+    align-items: start;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-group:last-child{ border-bottom: none; }
+  .skill-label{
+    font-family:"Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text);
+    padding-top: 4px;
+  }
+  .chip-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+  }
+  .chip{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.8rem;
+    color: var(--text);
+    background: var(--accent-soft);
+    border: 1px solid var(--border);
+    padding: 3px 9px;
+    border-radius: 6px;
+    white-space: nowrap;
+  }
+
+  .project-card{
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 10px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .project-head{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+  .project-title{
+    font-family:"Manrope", sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  .project-sub{
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+  .project-card p{ color: var(--text-muted); max-width: 60ch; }
+  .stack-row{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0 16px;
+  }
+  .project-links{ display:flex; flex-wrap:wrap; gap: 10px; }
+  .project-links a{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.85rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+  .project-links a:hover{ border-bottom-color: var(--accent); }
+
+  .exp-item{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 4px 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child{ border-bottom: none; }
+  .exp-role{ font-weight: 600; }
+  .exp-dates{
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  footer{
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  footer a{ color: var(--text-muted); }
+
+  .copy-btn{
+    font-family: inherit;
+    font-size: inherit;
+    background:none;
+    border:none;
+    color: var(--accent);
+    cursor:pointer;
+    padding:0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  @media (max-width: 480px){
+    .skill-group{ grid-template-columns: 1fr; row-gap: 8px; }
+    .wrap{ padding-top: 44px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">iOS Engineer</div>
+    <h1>Çağla Çopuroğlu</h1>
+    <p class="role">Building modular, production-grade iOS apps</p>
+    <p class="tagline">4 years shipping apps in banking, healthcare, and communications — currently technical lead for a UIKit modernization program. In my own time, I design and ship independent projects end to end.</p>
+    <div class="meta-row">
+      <span>📍 Istanbul, Turkey</span>
+      <span>caglacprgl@outlook.com</span>
+    </div>
+    <div class="links">
+      <a class="btn primary" href="https://github.com/lowkeyboard" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/caglacprgl/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://medium.com/@caglacpr" target="_blank" rel="noopener">Medium</a>
+    </div>
+  </header>
+
+  <section class="about">
+    <h2>About</h2>
+    <p>I'm an iOS engineer with four years of experience delivering production applications for banking, healthcare, and communications companies. I currently lead architecture for a UIKit modernization program: a modular component framework, a CocoaPods→SPM migration, and the engineering standards the team builds against. Along the way I've cut crash rates by 20% and pushed test coverage to 90%.</p>
+    <p>I also build things on my own — most recently CGL, a privacy-first iOS app with no backend and no analytics, described below.</p>
+  </section>
+
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <span class="skill-label">Languages</span>
+      <div class="chip-row">
+        <span class="chip">Swift</span><span class="chip">Objective-C</span><span class="chip">Dart</span><span class="chip">JavaScript / TypeScript</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-label">iOS</span>
+      <div class="chip-row">
+        <span class="chip">UIKit</span><span class="chip">SwiftUI</span><span class="chip">MVVM</span><span class="chip">XCTest</span><span class="chip">SPM</span><span class="chip">CocoaPods</span><span class="chip">APNs</span><span class="chip">Instruments</span><span class="chip">LLDB</span><span class="chip">Xcode</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-label">Architecture</span>
+      <div class="chip-row">
+        <span class="chip">Modular architecture</span><span class="chip">Reusable components</span><span class="chip">Design patterns</span><span class="chip">Technical leadership</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-label">Cross-platform</span>
+      <div class="chip-row">
+        <span class="chip">Flutter</span><span class="chip">React Native</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <span class="skill-label">Tooling</span>
+      <div class="chip-row">
+        <span class="chip">Fastlane</span><span class="chip">Jenkins</span><span class="chip">Azure DevOps</span><span class="chip">Git</span><span class="chip">REST APIs</span><span class="chip">App Store release &amp; compliance</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects">
+    <h2>Projects</h2>
+    <div class="project-card">
+      <div class="project-head">
+        <span class="project-title">CGL — Content Gathering Locker</span>
+        <span class="project-sub">Personal iOS app</span>
+      </div>
+      <p>A privacy-first link-saving app for iOS and iPadOS. No backend, no analytics, no account — every save lives in the user's own iCloud. Capture content from TikTok, YouTube, Instagram, X, and Safari via the Share Sheet, a home-screen widget, or a Control Center shortcut, then organize it into folders that sync automatically across devices.</p>
+      <div class="stack-row">
+        <span class="chip">SwiftUI</span><span class="chip">WidgetKit</span><span class="chip">App Intents</span><span class="chip">CloudKit</span><span class="chip">Share Extension</span>
+      </div>
+      <div class="project-links">
+        <a href="https://infocglapp-cpu.github.io/cgl-info/" target="_blank" rel="noopener">Project page →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience">
+    <h2>Experience</h2>
+    <div class="exp-item">
+      <span class="exp-role">iOS Engineer</span>
+      <span class="exp-dates">Dec 2022 – Present</span>
+    </div>
+    <div class="exp-item">
+      <span class="exp-role">Flutter Developer</span>
+      <span class="exp-dates">Feb 2022 – May 2022</span>
+    </div>
+    <div class="exp-item">
+      <span class="exp-role">iOS Developer Intern</span>
+      <span class="exp-dates">Oct 2021 – Jan 2022</span>
+    </div>
+    <div class="exp-item">
+      <span class="exp-role">React Native Developer Intern</span>
+      <span class="exp-dates">May 2021 – Aug 2021</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Çağla Çopuroğlu</span>
+    <span>
+      <button class="copy-btn" onclick="copyEmail(this)">caglacprgl@outlook.com</button>
+    </span>
+  </footer>
+
+</div>
+
+<script>
+  function copyEmail(btn){
+    var email = "caglacprgl@outlook.com";
+    var original = btn.textContent;
+    function done(ok){
+      btn.textContent = ok ? "Copied!" : email;
+      setTimeout(function(){ btn.textContent = original; }, 1500);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(email).then(function(){ done(true); }, function(){ done(false); });
+    } else {
+      done(false);
+    }
+  }
+</script>
+</body>
+</html>
